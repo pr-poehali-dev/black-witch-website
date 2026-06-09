@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const WITCH_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/46779ba5-2d28-4cbf-b10f-7fd9af9b5d78.jpg";
+const WITCH_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/bucket/c95c476b-dcef-4726-8772-2358ef8d7eba.jpg";
 const RITUAL_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/338504ab-d023-4c84-b996-81aa6ad736b5.jpg";
 const POTIONS_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/9c213743-93e8-4542-a060-a526d45661e0.jpg";
 
