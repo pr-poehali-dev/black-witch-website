@@ -220,22 +220,22 @@ export default function Index() {
           style={{ transition: "opacity 1s, transform 1s", opacity: visible ? 1 : 0, transform: visible ? "translateY(0)" : "translateY(20px)" }}
         >
           <div className="runic-divider mb-8 max-w-xs mx-auto">
-            <span>✦ ТЁМНЫЕ ИСКУССТВА ✦</span>
+            <span>✦ МИР ПЕРЕМЕН ✦</span>
           </div>
 
           <h1
             style={{
               fontFamily: "'Cinzel', serif",
-              fontSize: "clamp(3rem, 12vw, 9rem)",
+              fontSize: "clamp(2.2rem, 9vw, 7rem)",
               fontWeight: 900,
               color: "var(--witch-parchment)",
               textShadow: "0 0 60px rgba(201,168,76,0.3), 0 0 120px rgba(139,26,26,0.2)",
-              letterSpacing: "0.1em",
+              letterSpacing: "0.08em",
               lineHeight: 1,
-              marginBottom: "1.5rem",
+              marginBottom: "1rem",
             }}
           >
-            МОРАНА
+            ВЕДЬМА ОЛЬГА
           </h1>
 
           <p
@@ -244,25 +244,25 @@ export default function Index() {
               fontStyle: "italic",
               fontSize: "clamp(0.9rem, 2.5vw, 1.3rem)",
               color: "var(--witch-gold)",
-              letterSpacing: "0.4em",
-              marginBottom: "0.75rem",
+              letterSpacing: "0.35em",
+              marginBottom: "1.25rem",
             }}
           >
-            Мастер тёмных искусств
+            Практикующая ведьма · Эзотерика · Трансформация судьбы
           </p>
 
           <p
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: "clamp(1rem, 2vw, 1.15rem)",
+              fontSize: "clamp(1rem, 2vw, 1.2rem)",
               color: "var(--witch-smoke)",
-              maxWidth: "500px",
+              maxWidth: "580px",
               margin: "0 auto 3rem",
-              lineHeight: 1.8,
+              lineHeight: 1.9,
             }}
           >
-            Более двадцати лет в тени. Ритуалы предков, сила рун и знание трав —
-            всё это служит тем, кто решился обратиться к тёмной стороне.
+            Добро пожаловать в пространство трансформации. Здесь, среди завес тайны
+            и древней мудрости, рождаются изменения, способные перевернуть вашу жизнь.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -363,27 +363,29 @@ export default function Index() {
                 marginBottom: "1.5rem",
               }}
             >
-              Практикующая ведьма.<br />Связь с тёмным миром.
+              Загляните в мир<br />перемен с Ведьмой Ольгой
             </h2>
-            <div style={{ fontSize: "1.1rem", color: "var(--witch-smoke)", lineHeight: 1.8 }} className="space-y-4">
-              <p>Меня зовут Ольга. Я практикующая ведьма с многолетним опытом работы в эзотерике. Моя миссия — помогать людям находить <span style={{ color: "var(--witch-parchment)" }}>баланс, счастье и успех</span> через магию и духовные практики.</p>
+            <div style={{ fontSize: "1.1rem", color: "var(--witch-smoke)", lineHeight: 1.9 }} className="space-y-4">
+              <p>Вы ищете решение там, где традиционные методы оказались бессильны? Возможно, пришло время обратиться к силам, выходящим за рамки привычного.</p>
               <p>
                 Я работаю с{" "}
                 <span style={{ color: "var(--witch-parchment)" }}>божеством тёмного мира</span> —
-                это даёт моей практике особую силу и глубину, недоступную большинству магов.
+                это даёт моей практике особую силу и глубину, недоступную большинству.
               </p>
             </div>
 
             <div className="mt-8 space-y-3">
               {[
-                "Глубокий опыт и знания в области эзотерики",
-                "Персонализированный подход к каждому клиенту",
-                "Честность и открытость в работе",
-                "Гарантия результата при соблюдении рекомендаций",
+                { title: "Опыт и знания", desc: "Годы изучения эзотерических практик, глубокое понимание человеческой души." },
+                { title: "Индивидуальный подход", desc: "Каждая ситуация уникальна. Работаю на внимании к деталям вашей жизни." },
+                { title: "Эффективность и честность", desc: "Я работаю дорого, потому что моя магия сильна и действенна." },
               ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <span style={{ color: "var(--witch-gold)", marginTop: "2px", flexShrink: 0 }}>✦</span>
-                  <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem", color: "var(--witch-smoke)", lineHeight: 1.6 }}>{item}</span>
+                <div key={item.title} className="flex items-start gap-3">
+                  <span style={{ color: "var(--witch-gold)", marginTop: "4px", flexShrink: 0 }}>✦</span>
+                  <div>
+                    <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.78rem", letterSpacing: "0.05em", color: "var(--witch-parchment)" }}>{item.title}: </span>
+                    <span style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.05rem", color: "var(--witch-smoke)", lineHeight: 1.6 }}>{item.desc}</span>
+                  </div>
                 </div>
               ))}
             </div>
