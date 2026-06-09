@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "OPTIONS preflight",
+      "method": "OPTIONS",
+      "path": "/",
+      "expectedStatus": 200
+    },
+    {
+      "name": "Отправка заявки без обязательных полей",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "", "contact": ""},
+      "expectedStatus": 400
+    },
+    {
+      "name": "Успешная отправка заявки",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Тест", "contact": "test@test.ru", "question": "Тестовый вопрос", "service": "Расклад"},
+      "expectedStatus": 200
+    }
+  ]
+}

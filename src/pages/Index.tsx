@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
+const SEND_CONTACT_URL = "https://functions.poehali.dev/5609270c-9c62-459e-8954-5d2450edd2e5";
+
 const WITCH_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/bucket/c95c476b-dcef-4726-8772-2358ef8d7eba.jpg";
 const RITUAL_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/338504ab-d023-4c84-b996-81aa6ad736b5.jpg";
 const POTIONS_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/9c213743-93e8-4542-a060-a526d45661e0.jpg";
@@ -122,6 +124,11 @@ function StarRating({ count }: { count: number }) {
 export default function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [formName, setFormName] = useState("");
+  const [formContact, setFormContact] = useState("");
+  const [formQuestion, setFormQuestion] = useState("");
+  const [formSending, setFormSending] = useState(false);
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">("idle");
 
   useEffect(() => {
     const timer = setTimeout(() => setVisible(true), 100);
@@ -132,6 +139,31 @@ export default function Index() {
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
+  };
+
+  const handleSubmit = async () => {
+    if (!formName.trim() || !formContact.trim()) return;
+    setFormSending(true);
+    setFormStatus("idle");
+    try {
+      const res = await fetch(SEND_CONTACT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: formName, contact: formContact, question: formQuestion }),
+      });
+      if (res.ok) {
+        setFormStatus("success");
+        setFormName("");
+        setFormContact("");
+        setFormQuestion("");
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    } finally {
+      setFormSending(false);
+    }
   };
 
   return (
@@ -529,52 +561,63 @@ export default function Index() {
             Опишите вашу ситуацию. Я отвечаю в течение суток.
           </p>
 
-          <form className="space-y-4 text-left">
+          <form className="space-y-4 text-left" onSubmit={e => { e.preventDefault(); handleSubmit(); }}>
             <div className="grid sm:grid-cols-2 gap-4">
-              {[
-                { label: "ИМЯ", placeholder: "Ваше имя", type: "text" },
-                { label: "ТЕЛЕФОН / EMAIL", placeholder: "Как с вами связаться", type: "text" },
-              ].map(({ label, placeholder, type }) => (
-                <div key={label}>
-                  <label style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.3em", color: "var(--witch-gold)", display: "block", marginBottom: "0.5rem" }}>{label}</label>
-                  <input
-                    type={type}
-                    placeholder={placeholder}
-                    className="w-full outline-none transition-all duration-300"
-                    style={{
-                      padding: "0.75rem 1rem",
-                      fontFamily: "'Cormorant Garamond', serif",
-                      fontSize: "1rem",
-                      background: "var(--witch-dark)",
-                      border: "1px solid rgba(201,168,76,0.2)",
-                      color: "var(--witch-parchment)",
-                    }}
-                    onFocus={e => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.6)")}
-                    onBlur={e => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.2)")}
-                  />
-                </div>
-              ))}
+              <div>
+                <label style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.3em", color: "var(--witch-gold)", display: "block", marginBottom: "0.5rem" }}>ИМЯ</label>
+                <input
+                  type="text"
+                  placeholder="Ваше имя"
+                  value={formName}
+                  onChange={e => setFormName(e.target.value)}
+                  className="w-full outline-none transition-all duration-300"
+                  style={{ padding: "0.75rem 1rem", fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", background: "var(--witch-dark)", border: "1px solid rgba(201,168,76,0.2)", color: "var(--witch-parchment)" }}
+                  onFocus={e => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.6)")}
+                  onBlur={e => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.2)")}
+                />
+              </div>
+              <div>
+                <label style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.3em", color: "var(--witch-gold)", display: "block", marginBottom: "0.5rem" }}>ТЕЛЕФОН / EMAIL</label>
+                <input
+                  type="text"
+                  placeholder="Как с вами связаться"
+                  value={formContact}
+                  onChange={e => setFormContact(e.target.value)}
+                  className="w-full outline-none transition-all duration-300"
+                  style={{ padding: "0.75rem 1rem", fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", background: "var(--witch-dark)", border: "1px solid rgba(201,168,76,0.2)", color: "var(--witch-parchment)" }}
+                  onFocus={e => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.6)")}
+                  onBlur={e => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.2)")}
+                />
+              </div>
             </div>
             <div>
               <label style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.3em", color: "var(--witch-gold)", display: "block", marginBottom: "0.5rem" }}>ВАШ ВОПРОС</label>
               <textarea
                 rows={5}
                 placeholder="Опишите вашу ситуацию..."
+                value={formQuestion}
+                onChange={e => setFormQuestion(e.target.value)}
                 className="w-full outline-none transition-all duration-300 resize-none"
-                style={{
-                  padding: "0.75rem 1rem",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "1rem",
-                  background: "var(--witch-dark)",
-                  border: "1px solid rgba(201,168,76,0.2)",
-                  color: "var(--witch-parchment)",
-                }}
+                style={{ padding: "0.75rem 1rem", fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", background: "var(--witch-dark)", border: "1px solid rgba(201,168,76,0.2)", color: "var(--witch-parchment)" }}
                 onFocus={e => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.6)")}
                 onBlur={e => (e.currentTarget.style.borderColor = "rgba(201,168,76,0.2)")}
               />
             </div>
+
+            {formStatus === "success" && (
+              <div style={{ padding: "0.75rem 1rem", background: "rgba(201,168,76,0.1)", border: "1px solid rgba(201,168,76,0.4)", color: "var(--witch-gold)", fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", textAlign: "center" }}>
+                Ваше обращение отправлено. Отвечу в течение суток.
+              </div>
+            )}
+            {formStatus === "error" && (
+              <div style={{ padding: "0.75rem 1rem", background: "rgba(139,26,26,0.2)", border: "1px solid rgba(139,26,26,0.5)", color: "#e88", fontFamily: "'Cormorant Garamond', serif", fontSize: "1rem", textAlign: "center" }}>
+                Ошибка отправки. Попробуйте написать напрямую в Telegram.
+              </div>
+            )}
+
             <button
-              type="button"
+              type="submit"
+              disabled={formSending || !formName.trim() || !formContact.trim()}
               className="w-full transition-all duration-300"
               style={{
                 padding: "1rem",
@@ -584,18 +627,21 @@ export default function Index() {
                 background: "var(--witch-gold)",
                 color: "var(--witch-black)",
                 border: "1px solid var(--witch-gold)",
-                cursor: "pointer",
+                cursor: formSending ? "wait" : "pointer",
+                opacity: (!formName.trim() || !formContact.trim()) ? 0.6 : 1,
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.background = "transparent";
-                (e.currentTarget as HTMLElement).style.color = "var(--witch-gold)";
+                if (!formSending) {
+                  (e.currentTarget as HTMLElement).style.background = "transparent";
+                  (e.currentTarget as HTMLElement).style.color = "var(--witch-gold)";
+                }
               }}
               onMouseLeave={e => {
                 (e.currentTarget as HTMLElement).style.background = "var(--witch-gold)";
                 (e.currentTarget as HTMLElement).style.color = "var(--witch-black)";
               }}
             >
-              ОТПРАВИТЬ ОБРАЩЕНИЕ
+              {formSending ? "ОТПРАВЛЯЮ..." : "ОТПРАВИТЬ ОБРАЩЕНИЕ"}
             </button>
           </form>
 
@@ -604,9 +650,9 @@ export default function Index() {
             style={{ borderTop: "1px solid rgba(201,168,76,0.15)", paddingTop: "2rem" }}
           >
             {[
-              { icon: "Phone", label: "+7 (999) 000-00-00" },
-              { icon: "Mail", label: "morana@temnaya.ru" },
-              { icon: "MessageCircle", label: "Telegram: @morana" },
+              { icon: "Phone", label: "+7 (925) 188-53-63" },
+              { icon: "Mail", label: "olgazajceva332@gmail.com" },
+              { icon: "MessageCircle", label: "Telegram: @Afelia6661" },
             ].map(({ icon, label }) => (
               <div key={label} className="flex items-center gap-2" style={{ color: "var(--witch-smoke)" }}>
                 <Icon name={icon} size={14} />
