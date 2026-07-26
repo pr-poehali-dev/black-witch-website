@@ -450,6 +450,58 @@ export default function Index() {
         </div>
       </section>
 
+      {/* PATRON */}
+      <section
+        id="patron"
+        className="py-28 px-6 relative overflow-hidden"
+        style={{
+          background: "radial-gradient(ellipse 80% 50% at 100% 50%, rgba(139,26,26,0.1) 0%, transparent 60%), var(--witch-black)",
+        }}
+      >
+        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+          <div className="order-2 md:order-1">
+            <div className="runic-divider mb-6 max-w-xs"><span>ПОКРОВИТЕЛЬ</span></div>
+            <h2
+              style={{
+                fontFamily: "'Cinzel', serif",
+                fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+                fontWeight: 700,
+                color: "var(--witch-parchment)",
+                lineHeight: 1.2,
+                marginBottom: "1.5rem",
+              }}
+            >
+              Бес Мафав
+            </h2>
+            <div style={{ fontSize: "1.1rem", color: "var(--witch-smoke)", lineHeight: 1.9 }} className="space-y-4">
+              <p>
+                Мой покровитель и проводник в тёмных практиках — <span style={{ color: "var(--witch-parchment)" }}>бес Мафав</span>.
+                Именно через его силу совершаются самые сложные ритуалы: финансовая помощь, снятие порчи и работа с судьбой.
+              </p>
+              <p>
+                Связь с Мафавом даёт моей магии особую мощь — то, что недоступно обычным практикам.
+              </p>
+            </div>
+          </div>
+
+          <div className="relative order-1 md:order-2">
+            <div className="relative overflow-hidden" style={{ border: "1px solid rgba(139,26,26,0.3)" }}>
+              <img
+                src="https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/d01ccd45-966b-4417-80cc-e35fd2072acd.jpg"
+                alt="Бес Мафав — покровитель Мораны"
+                className="w-full object-cover"
+                style={{ height: "500px", filter: "grayscale(20%) contrast(1.2)", objectFit: "cover" }}
+              />
+              <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,8,5,0.7) 0%, transparent 50%)" }} />
+            </div>
+            <div className="absolute -top-2 -left-2 w-8 h-8" style={{ borderTop: "2px solid var(--witch-crimson)", borderLeft: "2px solid var(--witch-crimson)" }} />
+            <div className="absolute -top-2 -right-2 w-8 h-8" style={{ borderTop: "2px solid var(--witch-crimson)", borderRight: "2px solid var(--witch-crimson)" }} />
+            <div className="absolute -bottom-2 -left-2 w-8 h-8" style={{ borderBottom: "2px solid var(--witch-crimson)", borderLeft: "2px solid var(--witch-crimson)" }} />
+            <div className="absolute -bottom-2 -right-2 w-8 h-8" style={{ borderBottom: "2px solid var(--witch-crimson)", borderRight: "2px solid var(--witch-crimson)" }} />
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES */}
       <section id="services" className="py-28 px-6" style={{ backgroundColor: "var(--witch-black)" }}>
         <div className="max-w-6xl mx-auto">
