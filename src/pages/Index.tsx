@@ -6,6 +6,7 @@ const SEND_CONTACT_URL = "https://functions.poehali.dev/5609270c-9c62-459e-8954-
 const WITCH_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/bucket/c95c476b-dcef-4726-8772-2358ef8d7eba.jpg";
 const RITUAL_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/338504ab-d023-4c84-b996-81aa6ad736b5.jpg";
 const POTIONS_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/9c213743-93e8-4542-a060-a526d45661e0.jpg";
+const WREATH_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/bd00aa28-f868-4bc2-b44b-628ad4b3e5ec.jpg";
 
 const NAV_ITEMS = [
   { label: "О ведьме", href: "#about" },
@@ -65,12 +66,19 @@ const SERVICES = [
     desc: "Работа против недоброжелателей и врагов — сильное энергетическое воздействие. Цена зависит от сложности запроса.",
     price: "от 70 000 ₽",
   },
+  {
+    icon: "👑",
+    title: "Снятие венца безбрачия",
+    desc: "Диагностика и снятие родового проклятия одиночества. Освобождение судьбы от невидимых оков, мешающих встретить любовь и создать семью.",
+    price: "от 45 000 ₽",
+  },
 ];
 
 const GALLERY = [
   { img: RITUAL_IMAGE, title: "Ритуал новолуния", tag: "Ритуал" },
   { img: POTIONS_IMAGE, title: "Алхимическая лаборатория", tag: "Зелья" },
   { img: WITCH_IMAGE, title: "Мастер тёмных искусств", tag: "Портрет" },
+  { img: WREATH_IMAGE, title: "Венец безбрачия", tag: "Обряд" },
 ];
 
 const REVIEWS = [
