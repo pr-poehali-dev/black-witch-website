@@ -9,6 +9,7 @@ const POTIONS_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-
 
 const NAV_ITEMS = [
   { label: "О ведьме", href: "#about" },
+  { label: "Мафав", href: "#patron" },
   { label: "Услуги", href: "#services" },
   { label: "Галерея", href: "#gallery" },
   { label: "Отзывы", href: "#reviews" },
