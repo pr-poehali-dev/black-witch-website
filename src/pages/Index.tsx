@@ -273,7 +273,7 @@ export default function Index() {
               marginBottom: "1rem",
             }}
           >
-            ВЕДЬМА ОЛЬГА
+            ВЕДЬМА МОРАНА
           </h1>
 
           <p
