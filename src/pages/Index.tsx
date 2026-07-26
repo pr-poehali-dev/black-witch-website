@@ -650,7 +650,7 @@ export default function Index() {
             style={{ borderTop: "1px solid rgba(201,168,76,0.15)", paddingTop: "2rem" }}
           >
             {[
-              { icon: "Phone", label: "+7 (925) 188-53-63" },
+              { icon: "Phone", label: "+7 (999) 892-56-61" },
               { icon: "Mail", label: "olgazajceva332@gmail.com" },
               { icon: "MessageCircle", label: "Telegram: @Afelia6661" },
             ].map(({ icon, label }) => (
