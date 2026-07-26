@@ -518,10 +518,10 @@ export default function Index() {
           <div className="relative order-1 md:order-2">
             <div className="relative overflow-hidden" style={{ border: "1px solid rgba(139,26,26,0.3)" }}>
               <img
-                src="https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/d01ccd45-966b-4417-80cc-e35fd2072acd.jpg"
+                src="https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/19b55e3d-18bb-4f42-883d-9dbf2d6aa453.jpg"
                 alt="Бес Мафав — покровитель Мораны"
                 className="w-full object-cover"
-                style={{ height: "500px", filter: "grayscale(20%) contrast(1.2)", objectFit: "cover" }}
+                style={{ height: "500px", filter: "contrast(1.15) saturate(1.2)", objectFit: "cover" }}
               />
               <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(10,8,5,0.7) 0%, transparent 50%)" }} />
             </div>
