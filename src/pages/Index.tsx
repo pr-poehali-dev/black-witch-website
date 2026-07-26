@@ -9,6 +9,7 @@ const POTIONS_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-
 const WREATH_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/bd00aa28-f868-4bc2-b44b-628ad4b3e5ec.jpg";
 const CEMETERY_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/54576833-eb4b-4a18-97d2-bce3944bd1b7.jpg";
 const LOCK_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/716f13ed-19fb-4509-86ec-2f59a406b425.jpg";
+const LILITH_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/781dbc53-b686-48a9-abb7-4b6665deccec.jpg";
 
 const NAV_ITEMS = [
   { label: "О ведьме", href: "#about" },
@@ -86,6 +87,12 @@ const SERVICES = [
     desc: "Обряд верности — энергетическая печать, ограждающая мужчину от соблазнов и измен. Укрепляет привязанность и хранит отношения.",
     price: "от 18 000 ₽",
   },
+  {
+    icon: "🖤",
+    title: "Обряд красоты через Лилит",
+    desc: "Работа с энергией Лилит — раскрытие природной привлекательности, харизмы и внутренней силы притяжения. Усиление женской энергетики.",
+    price: "от 25 000 ₽",
+  },
 ];
 
 const GALLERY = [
@@ -95,6 +102,7 @@ const GALLERY = [
   { img: WREATH_IMAGE, title: "Венец безбрачия", tag: "Обряд" },
   { img: CEMETERY_IMAGE, title: "Порча на смерть", tag: "Кладбище" },
   { img: LOCK_IMAGE, title: "Печать верности", tag: "Обряд" },
+  { img: LILITH_IMAGE, title: "Лилит", tag: "Обряд красоты" },
 ];
 
 const REVIEWS = [
