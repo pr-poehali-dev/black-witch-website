@@ -8,6 +8,7 @@ const RITUAL_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b
 const POTIONS_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/9c213743-93e8-4542-a060-a526d45661e0.jpg";
 const WREATH_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/bd00aa28-f868-4bc2-b44b-628ad4b3e5ec.jpg";
 const CEMETERY_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/54576833-eb4b-4a18-97d2-bce3944bd1b7.jpg";
+const LOCK_IMAGE = "https://cdn.poehali.dev/projects/1db90b4f-4da9-46db-b7a8-b9e52f254c29/files/716f13ed-19fb-4509-86ec-2f59a406b425.jpg";
 
 const NAV_ITEMS = [
   { label: "О ведьме", href: "#about" },
@@ -79,6 +80,12 @@ const SERVICES = [
     desc: "Работа с самым тяжёлым видом негативного воздействия. Диагностика, снятие и полное энергетическое восстановление. Требует особой концентрации и силы.",
     price: "от 90 000 ₽",
   },
+  {
+    icon: "🔒",
+    title: "Печать от измен мужчины",
+    desc: "Обряд верности — энергетическая печать, ограждающая мужчину от соблазнов и измен. Укрепляет привязанность и хранит отношения.",
+    price: "от 18 000 ₽",
+  },
 ];
 
 const GALLERY = [
@@ -87,6 +94,7 @@ const GALLERY = [
   { img: WITCH_IMAGE, title: "Мастер тёмных искусств", tag: "Портрет" },
   { img: WREATH_IMAGE, title: "Венец безбрачия", tag: "Обряд" },
   { img: CEMETERY_IMAGE, title: "Порча на смерть", tag: "Кладбище" },
+  { img: LOCK_IMAGE, title: "Печать верности", tag: "Обряд" },
 ];
 
 const REVIEWS = [
